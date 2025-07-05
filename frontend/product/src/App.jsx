@@ -13,7 +13,8 @@ export default function App() {
 
   // ✅ Fetch all product data
   useEffect(() => {
-    axios.get(`http://localhost:7000/api/products`)
+    // axios.get(`http://localhost:7000/api/products`)
+    axios.get(`https://e-commerce-backend-6kxk.onrender.com/api/products`)
       .then((res) => {
         dispatch(setDataProduct(res.data));
       })
