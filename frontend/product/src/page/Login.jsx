@@ -18,7 +18,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [data, setData] = useState({
     email: "",
-    password: "Pa$$w0rd!",
+    password: "",
   });
 
   const [formError, setFormError] = useState({});
