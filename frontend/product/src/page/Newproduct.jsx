@@ -20,7 +20,7 @@ const NewProduct = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:7000/api/products');
+      const response = await axios.get('https://e-commerce-backend-6kxk.onrender.com/api/products');
       setProducts(response.data);
     } catch (error) {
       toast.error('Failed to fetch products.');
@@ -46,7 +46,7 @@ const NewProduct = () => {
 
     try {
       if (editMode) {
-        await axios.put(`http://localhost:7000/api/products/${selectedProductId}`, formData, {
+        await axios.put(`https://e-commerce-backend-6kxk.onrender.com/api/products/${selectedProductId}`, formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data'
@@ -54,7 +54,7 @@ const NewProduct = () => {
         });
         toast.success('Product updated successfully!');
       } else {
-        await axios.post('http://localhost:7000/api/products', formData, {
+        await axios.post('https://e-commerce-backend-6kxk.onrender.com/api/products', formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data'
@@ -86,7 +86,7 @@ const NewProduct = () => {
   const handleDelete = async (id) => {
     let token = localStorage.getItem("token");
     try {
-      await axios.delete(`http://localhost:7000/api/products/${id}`, {
+      await axios.delete(`https://e-commerce-backend-6kxk.onrender.com/api/products/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
