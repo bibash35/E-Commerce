@@ -43,7 +43,8 @@ export default function Login() {
     setFormError({});
     try {
       const response = await axios.post(
-        `http://localhost:7000/api/auth/login`,
+        // `http://localhost:7000/api/auth/login`,
+        `https://e-commerce-backend-6kxk.onrender.com/api/auth/login`,
         data
       );
 
