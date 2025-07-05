@@ -15,6 +15,9 @@ import { Provider } from "react-redux";
 import Cart from './page/Cart.jsx';
 import ProtectedRoute from './component/ProtectedRoute.jsx';
 import SearchResultsPage from './component/SearchPage.jsx';
+import Payment from './payment/Payment.jsx';
+import Success from './payment/Success.jsx';
+import Failure from './payment/Failure.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,14 +30,16 @@ const router = createBrowserRouter(
 <Route path='login' element={<Login/>}/>
 <Route path='signup' element={<Signup/>}/>
 <Route path='cart' element={<Cart/>}/>
+<Route path='cart' element={<Cart/>}/>
+<Route path='payment' element={<Payment/>}/>
+<Route path='success' element={<Success/>}/>
+<Route path='failure' element={<Failure/>}/>
+
 <Route path='search-page' element={<SearchResultsPage/>}/>
 </Route>
   )
 )
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
   <Provider store={store}>
   <RouterProvider router={router} />
 </Provider>

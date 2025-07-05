@@ -46,7 +46,7 @@ const signup = async (req, res, next) => {
   
       // If credentials don't match
       res.status(401).send({
-        msg: "Invalid credentials",
+        msg: "Incorrect email or password",
       });
     } catch (error) {
       console.error("Error in login:", error);

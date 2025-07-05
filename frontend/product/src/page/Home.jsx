@@ -23,6 +23,15 @@ export default function Home() {
   const preveProduct = () => {
     slideProductRef.current.scrollLeft -= 200;
   }
+
+  // Add this near the top inside Home component
+const productSectionRef = useRef(null);
+
+// Add this function in the component
+const scrollToProducts = () => {
+  productSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+};
+
   return (
     <>
       <div className='p-3 md:p-4 '>
@@ -34,7 +43,10 @@ export default function Home() {
             </div>
             <h2 className='text-4xl font-bold md:text-6xl py-3'>The Fastest Delivery in <span className='text-red-600 '>Your Home</span></h2>
             <p className='py-3 text-base '>SpeedyNepal delivers essentials to your doorstep with unmatched speed and reliability. Our mission is to provide the fastest delivery service, ensuring convenience and satisfaction for our customers, no matter the time or place.</p>
-            <button className='font-bold bg-red-500 text-slate-200 px-4 py-2 rounded-md'>Order Now</button>
+            {/* <button className='font-bold bg-red-500 text-slate-200 px-4 py-2 rounded-md'>Order Now</button> */}
+            <button onClick={scrollToProducts} className='font-bold bg-red-500 text-slate-200 px-4 py-2 rounded-md'>
+           Order Now
+           </button>
           </div>
           <div className='rightside md:w-1/2 flex flex-wrap gap-4 p-4 justify-center  '>
             {
@@ -64,6 +76,8 @@ export default function Home() {
               </button>
               <button
                 onClick={nextProduct}
+                
+ref={productSectionRef}
                 className="bg-slate-300 hover:bg-slate-400 text-lg p-1 rounded "
               >
                 <GrNext />
@@ -94,3 +108,4 @@ export default function Home() {
     </>
   )
 }
+

@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/slice/userSlice";
 import { toast } from "react-hot-toast";
 import { setSearchTerm } from '../redux/slice/productSlice';
-import { selectCartItemCount } from "../redux/slice/productSlice"; // Import the selector
+import { selectCartItemCount } from "../redux/slice/productSlice";
+import { clearCart } from "../redux/slice/productSlice";
+
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
@@ -52,14 +54,22 @@ export default function Header() {
   const [activeLink, setActiveLink] = useState("home");
 
 
-  const handleLogout = () => {
-    dispatch(logout());
-    toast.success("Logout successfully");
-  };
+  // const handleLogout = () => {
+  //   dispatch(logout());
+  //     // dispatch(clearCart()); // ✅ clears cart immediately
+
+  //   toast.success("Logout successfully");
+  // };
+
+const handleLogout = () => {
+  dispatch(logout());
+  dispatch(clearCart());
+  toast.success("Logout successfully");
+};
   const cartItemNumber = useSelector((state)=>state.product.cartItem)
 
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [activeStatus, setActiveStatusLink] = useState(""); // Assuming activeLink management is needed
+  const [activeStatus, setActiveStatusLink] = useState(""); 
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
