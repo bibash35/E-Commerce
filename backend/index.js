@@ -41,7 +41,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api", messageRoutes);
 
-const PORT = process.env.PORT
-app.listen(PORT, () => {
-  console.log(` Server started on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server started on port ${process.env.PORT}`);
 });
